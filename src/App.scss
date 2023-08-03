@@ -1,0 +1,154 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: 98vw;
+}
+
+header {
+  @include flex(row);
+  justify-content: flex-start;
+  align-items: center;
+
+  h1 {
+    background: -webkit-linear-gradient(45deg, #000000, #0f9b0f);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 40px;
+    font-size: 200%;
+  }
+}
+
+.input {
+  @include flex(row);
+  padding: 20px;
+
+  input {
+    color: black;
+    width: 250px;
+  }
+}
+
+.posts {
+  @include flex(column);
+  background-color: #588157;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+
+  h2 {
+    font-size: 180%;
+    margin-top: 30px;
+  }
+
+  .gallery-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: rgb(88, 129, 87);
+    gap: 20px;
+
+
+    .post {
+      @include flex(column);
+      align-items: center;
+      justify-content: center;
+      height: 370px;
+      width: 320px;
+      background-color: #cad2c5;
+
+      img {
+        height: 70%;
+        width: 80%;
+        object-fit: contain;
+        margin-top: 10px;
+      }
+
+      button {
+        background-color: #344e41;
+        color: white;
+        border-radius: 5px;
+        height: 40px;
+        width: 80px;
+        margin-top: -10px;
+        font-size: 110%;
+        font-weight: 140%;
+        cursor: pointer;
+
+        &:hover {
+          color: #344e41;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 1400px) {
+    .gallery-item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: rgb(88, 129, 87);
+      gap: 20px;
+    
+  
+      .post {
+        @include flex(column);
+        align-items: center;
+        justify-content: center;
+        height: 350px;
+        width: 300px;
+        background-color: #cad2c5;
+      }
+    }
+  
+  }
+
+@media screen and (max-width: 950px) {
+  .gallery-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgb(88, 129, 87);
+    gap: 20px;
+
+    .post {
+      @include flex(column);
+      align-items: center;
+      justify-content: center;
+      height: 350px;
+      width: 300px;
+      background-color: #cad2c5;
+    }
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .gallery-item {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: rgb(88, 129, 87);
+    gap: 20px;
+
+    .post {
+      @include flex(column);
+      align-items: center;
+      justify-content: center;
+      height: 350px;
+      width: 300px;
+      background-color: #cad2c5;
+    }
+  }
+
+}
+
+}
+}
